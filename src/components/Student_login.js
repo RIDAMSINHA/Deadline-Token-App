@@ -224,7 +224,7 @@ const Login = () => {
               <br/>
              
               <button className="rounded w-96 hover:bg-background hover:text-white hover:w-40 hover:ml-28" style={{border:"none",background:"none",textDecoration:"none",marginTop:"50px"}}>
-                <Link to="/" style={{fontFamily:"amar",fontSize:"20px",marginLeft:"150px",color:"black",fontWeight:"bold"}}>New user? Signup&gt;&gt;</Link>
+                <Link to="/student_signup" style={{fontFamily:"amar",fontSize:"20px",marginLeft:"150px",color:"black",fontWeight:"bold"}}>New user? Signup&gt;&gt;</Link>
               </button>
               
             </form>
