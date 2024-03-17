@@ -4,6 +4,8 @@ import Signup from './components/Student_signup';
 import Login from './components/Student_login';
 import AssignmentUpload from './components/Assignment_Upload';
 import StudentPortal from './components/student_portal';
+import Wallet from './components/Wallet';
+import SubmitAssignment from './components/Submit_assignment';
 
 function App() {
   return (
@@ -14,6 +16,8 @@ function App() {
             <Route path="/student_login" element={<Login />} errorElement={<ErrorPage />} />
             <Route path="/assignment_upload" element={<AssignmentUpload />} errorElement={<ErrorPage />} />
             <Route path="/student_portal" element={<StudentPortal />} errorElement={<ErrorPage />} />
+            <Route path="/submit_assignment" element={<SubmitAssignment />} errorElement={<ErrorPage />} />
+            <Route path="/wallet" element={<Wallet />} errorElement={<ErrorPage />} />
           </Routes>
         </div>
     </Router>

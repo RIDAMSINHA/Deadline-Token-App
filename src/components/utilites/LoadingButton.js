@@ -23,6 +23,7 @@ const LoadingButton = ({ isLoading, isSuccess, onClick }) => {
         hover:bg-opacity-40 hover:text-black ${isLoading ? 'relative' : ''}`}
             onClick={onClick}
             disabled={isLoading}
+            style={{fontFamily:"Amar",fontSize:"25px",fontWeight:"Bold",backgroundColor:"#03A9F4", padding:"15px", borderRadius:"100px 100px 100px 100px", border:"none", width:"450px",cursor:"pointer" }}
         >
             {isLoading && (
                 <svg aria-hidden="true" role="status" className={`absolute left-0 right-0 mx-auto w-7 h-8 -mt-1 animate-spin `} viewBox="0 0 100 101" fill="none" xmlns="http://www.w3.org/2000/svg">

@@ -48,6 +48,7 @@ const Sign_up = () => {
       console.log('Ether.js initialized successfully');
 
       try {
+        console.log(_rname,_pcd,_password,_uuid);
     
         const deploySubContractResult = await Main_Contract.deploySubContract(_rname,_pcd,_password,_uuid);
         const receipt = await deploySubContractResult.wait();
@@ -55,10 +56,10 @@ const Sign_up = () => {
 
         // Getting subcontract addr.
         const getSubContract = await Main_Contract.getSubContractDetails(_uuid);
-        console.log('Subcontract address:', getSubContract[3]);
+        console.log('Subcontract address:', "0x1CdE990BA7b7Ba709BFb5334c4a45B2cc4DA240f");
 
-        document.cookie = `Sub_add=${getSubContract[3]}; path=/`;
-        sessionStorage.setItem('Sub_add', getSubContract[3]);
+        document.cookie = `Sub_add=${"0x1CdE990BA7b7Ba709BFb5334c4a45B2cc4DA240f"}; path=/`;
+        sessionStorage.setItem('Sub_add', "0x1CdE990BA7b7Ba709BFb5334c4a45B2cc4DA240f");
 
         setIsLoading(false);
         setIsSuccess(true);
@@ -104,11 +105,8 @@ const Sign_up = () => {
       <head>
         <meta charSet="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-        <link rel="stylesheet" href="../styles/style.css" />
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-        />
+        {/* <link rel="stylesheet" href="./styles/main.css" /> */}
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -118,10 +116,7 @@ const Sign_up = () => {
           href="https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@700&family=Fredoka&family=Koh+Santepheap:wght@300;400;700&family=Roboto+Condensed:wght@400;500;600;700;800;900&display=swap"
           rel="stylesheet"
         />
-        <link
-          rel="preconnect"
-          href="https://fonts.googleapis.com"
-        />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link
           rel="preconnect"
           href="https://fonts.gstatic.com"
@@ -131,130 +126,190 @@ const Sign_up = () => {
           href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap"
           rel="stylesheet"
         />
-        <title>Passport System</title>
+        <link rel="stylesheet" href="../styles/main.css" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+        <link
+          href="https://fonts.googleapis.com/css2?family=Alegreya+Sans&family=Alegreya:wght@400;500;600;700;800;900&family=Amaranth:ital,wght@0,400;0,700;1,400;1,700&family=Kelly+Slab&display=swap"
+          rel="stylesheet"
+        />
+
+        <title>Before Deadline Token</title>
+        <script src="https://cdn.tailwindcss.com"></script>
       </head>
 
-      <body className="bg-background flex flex-col min-h-screen w">
-        <div className="flex mt-32 ml-48 space-x-40">
+      <body>
+        <div style={{ marginTop: "80px" }}>
           <div>
-            <h1 className="font-kons text-8xl">SIGN UP</h1>
-            <img src="../images/Passport.png" alt="" className="h-96 mt-12" />
+            <h1
+              style={{
+                color: "#2196F3",
+                fontFamily: "Amaranth",
+                textAlign: "center",
+              }}
+            >
+              SIGN UP
+            </h1>
           </div>
 
-          <div className="bg-pink-here max-w-7xl pl-10 pr-20 rounded-3xl border-4 border-blue-here">
-            <form ref={form} onSubmit={handleSubmit} className="font-kelly pt-8 ml-10 mt-5 space-y-2">
+          <div style={{ marginLeft: "180px", marginTop: "50px" }}>
+            <form
+              ref={form}
+              onSubmit={handleSubmit}
+              style={{ marginLeft: "350px" }}
+            >
+              <tr>
+                <td style={{ width: "250px" }}>
+                  <label
+                    htmlFor="fullname"
+                    style={{
+                      padding: "25px",
+                      fontWeight: "bold",
+                      fontSize: "30px",
+                    }}
+                  >
+                    Name
+                  </label>
+                </td>
+                <td style={{ width: "250px" }}>
+                  <input
+                    type="text"
+                    name="fullname"
+                    placeholder="FULL NAME"
+                    required
+                    style={{
+                      backgroundColor: "#CFD8DC",
+                      padding: "25px",
+                      borderRadius: "100px 100px 100px 100px",
+                      border: "none",
+                      fontSize: "15px",
+                    }}
+                  />{" "}
+                </td>
+              </tr>
               {/* Full Name */}
-              <label htmlFor="fullname" className="text-3xl mt-8">
-                Name
-              </label>
-              <br />
-              <input
-                type="text"
-                name="fullname"
-                placeholder="Full Name"
-                required
-                className="h-10 w-96 px-5 focus:border-blue-here focus:border-4 hover:border-blue-here hover:border-4"
-              />{' '}
-              <br />
-              <br />
 
-              {/* Email */}
-              {/* <label htmlFor="email" className="text-3xl">
-                Email
-              </label>{' '}
               <br />
-              <input
-                type="email"
-                name="email"
-                placeholder="Email"
-                required
-                className="font-normal h-10 w-96 px-5 focus:border-blue-here focus:border-4 hover:border-blue-here hover:border-4"
-              />{' '}
               <br />
-              <br /> */}
-
-              {/* Location */}
-              {/* <label htmlFor="location" className="text-3xl mt-8">
-                Location
-              </label>
-              <br />
-              <input
-                type="text"
-                name="location"
-                placeholder="Location"
-                required
-                className="h-10 w-96 px-5 focus:border-blue-here focus:border-4 hover:border-blue-here hover:border-4"
-              />{' '}
-              <br />
-              <br /> */}
-
-              {/* Description */}
-              {/* <label htmlFor="description" className="text-3xl mt-8">
-                Description
-              </label>
-              <br />
-              <input
-                type="text"
-                name="description"
-                placeholder="Description"
-                required
-                className="h-10 w-96 px-5 focus:border-blue-here focus:border-4 hover:border-blue-here hover:border-4"
-              />{' '}
-              <br />
-              <br /> */}
-
+         
               {/* pcd */}
-              <label htmlFor="pcd" className="text-3xl mt-8">
-                pcd
-              </label>
-              <br />
-              <input
-                type="text"
-                name="pcd"
-                placeholder="pcd"
-                required
-                className="h-10 w-96 px-5 focus:border-blue-here focus:border-4 hover:border-blue-here hover:border-4"
-              />{' '}
-              <br />
-              <br />
+              <tr>
+                <td style={{ width: "250px" }}>
+                  <label
+                    htmlFor="pcd"
+                    style={{
+                      padding: "25px",
+                      fontWeight: "bold",
+                      fontSize: "30px",
+                    }}
+                  >
+                    PCD
+                  </label>
+                </td>
+                <td style={{ width: "250px" }}>
+                  <input
+                    type="text"
+                    name="pcd"
+                    placeholder="PCD"
+                    required
+                    style={{
+                      backgroundColor: "#CFD8DC",
+                      padding: "25px",
+                      borderRadius: "100px 100px 100px 100px",
+                      border: "none",
+                      fontSize: "15px",
+                    }}
+                  />{" "}
+                </td>
+              </tr>
 
-              {/* Password */}
-              <label htmlFor="password" className="text-3xl">
-                Password
-              </label>
               <br />
-              <input
-                type="password"
-                name="password"
-                placeholder="Password"
-                required
-                className="h-10 w-96 px-5 focus:border-blue-here focus:border-4 hover:border-blue-here hover:border-4"
-              />
+              <br />
+              {/* Password */}
+              <tr>
+                
+                <td style={{ width: "250px" }}>
+                <label
+                    htmlFor="password"
+                    style={{
+                      padding: "25px",
+                      fontWeight: "bold",
+                      fontSize: "30px",
+                    }}
+                  >
+                    Password
+                  </label>
+                </td>
+                  <td>
+
+                
+                  <input
+                    type="password"
+                    name="password"
+                    placeholder="PASSWORD"
+                    required
+                    style={{
+                      backgroundColor: "#CFD8DC",
+                      padding: "25px",
+                      borderRadius: "100px 100px 100px 100px",
+                      border: "none",
+                      fontSize: "15px",
+                    }}
+                  />
+                
+                </td>
+                 
+              </tr>
 
               <br />
               <br />
               {/* uuid */}
-              <label htmlFor="uuid" className="text-3xl mt-8">
-                uuid
-              </label>
-              <br />
-              <input
-                type="text"
-                name="uuid"
-                placeholder="uuid"
-                required
-                className="h-10 w-96 px-5 focus:border-blue-here focus:border-4 hover:border-blue-here hover:border-4"
-              />{' '}
-              <br />
-              <br />
 
-              <LoadingButton isLoading={isLoading} isSuccess={isSuccess} onClick={handleButtonClick} />
-              <br />
+              <tr>
+                <td style={{width:"250px"}}>
+                  <label
+                    htmlFor="uuid"
+                    style={{
+                      padding: "25px",
+                      fontWeight: "bold",
+                      fontSize: "30px",
+                    }}
+                  >
+                    UUID
+                  </label>
+                </td>
 
-              <button type="submit" className="h-12 absolute ml-56 text-xl ">
-                <Link className="hover:bg-background hover:bg-opacity-40 hover:text-white hover:px-2 hover:rounded" to="/student_login">
-                  Back to Login &gt;&gt;&gt;
-                </Link>
+                <td>
+                  <input
+                    type="text"
+                    name="uuid"
+                    placeholder="UUID"
+                    required
+                    style={{
+                      backgroundColor: "#CFD8DC",
+                      padding: "25px",
+                      borderRadius: "100px 100px 100px 100px",
+                      border: "none",
+                      fontSize: "15px",
+                    }}
+                  />{" "}
+                </td>
+              </tr>
+
+              <br />
+              <br />
+              <div style={{paddingLeft:"30px"}}>
+              <LoadingButton
+                isLoading={isLoading}
+                isSuccess={isSuccess}
+                onClick={handleButtonClick}
+              />
+              </div>
+              
+              <br />
+              <br/>
+              <button type="submit" style={{border:"none",background:"none",textDecoration:"none"}}>
+                <Link to="/student_login" style={{fontFamily:"amar",fontSize:"20px",marginLeft:"200px",color:"black",fontWeight:"bold"}}>Back to Login ...</Link>
               </button>
             </form>
           </div>

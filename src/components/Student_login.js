@@ -43,7 +43,7 @@ const Login = () => {
         sessionStorage.setItem('us_sessionId', sessionId);
         setIsLoading(false);
         setIsSuccess(true);
-        // navigate("/");
+        navigate("/student_portal");
       } else {
         console.error("Invalid credentials. Login failed.");
         setErrorMessage("Invalid credentials. Please try again.");
@@ -121,90 +121,112 @@ const Login = () => {
         <title>Passport System</title>
       </head>
 
-      <body className="bg-background flex flex-col min-h-screen w">
-        <div className="flex mt-32 ml-48 space-x-40">
+      <body>
+        <div style={{ marginTop: "80px" }}>
           <div>
-            <h1 className="font-kons text-8xl">LOGIN</h1>
-            <img src="../images/Passport.png" alt="" className="h-96 mt-12" />
+            <h1
+              style={{
+                color: "#2196F3",
+                fontFamily: "Amaranth",
+                textAlign: "center",
+              }}
+            >
+              LOGIN
+            </h1>
           </div>
-          <button type="submit" className="absolute  -mt-28">
-            <Link to="/">
-              <img
-                src="../images/sign-out.png"
-                alt="LOGO"
-                className="h-12 ml-[1100px]"
 
-              />
-
-            </Link>
-          </button>
-
-          <div className="bg-pink-here rounded-3xl border-4 border-blue-here pr-10">
-            {errorMessage && (
-              <div className="absolute rounded-2xl bg-background mt-1 ml-9 h-12 w-96 border-4 border-red-500 font-bold text-red-500 flex items-center justify-center">
-                {errorMessage}
-              </div>
-            )}
+          <div>
+            {errorMessage && <div>{errorMessage}</div>}
             <form
               ref={form}
               onSubmit={handleSubmit}
-              className="font-kelly ml-10 mt-16 space-y-2"
+              
+            
+              style={{ marginLeft: "550px" }}
             >
-              {/*Email */}
-              <label htmlFor="email" className="text-3xl">
-                Email
-              </label>{' '}
-              <br />
-              <input
-                name='email'
-                type="text"
-                placeholder="Email"
-                required
-                className="font-normal h-10 w-96 px-5 focus:border-blue-here focus:border-4 hover:border-blue-here hover:border-4"
-              />{' '}
-              <br />
-              <br />
-              {/* User Name */}
-              {/* <label htmlFor="username" className="text-3xl mt-8">
-                Username
-              </label>
-              <br />
-              <input
-                name="username"
-                type="text"
-                placeholder="Username"
-                required
-                className="h-10 w-96 px-5 focus:border-blue-here focus:border-4 hover:border-blue-here hover:border-4"
-              />{" "}
-              <br />
-              <br /> */}
+              <tr style={{height:"100px",marginTop:"20px"}}>
+                <td style={{ width: "250px" }}>
+                  {/*Email */}
+                  <label
+                    htmlFor="email"
+                    style={{
+                      padding: "25px",
+                      fontWeight: "bold",
+                      fontSize: "30px",
+    
+                    }}
+                  >
+                    Email
+                  </label>{" "}
+                  
+                </td>
+                <td>
+                  <input
+                    name="email"
+                    type="text"
+                    placeholder="Email"
+                    required
+                    style={{
+                      backgroundColor: "#CFD8DC",
+                      padding: "25px",
+                      borderRadius: "100px 100px 100px 100px",
+                      border: "none",
+                      fontSize: "15px",
+                    }}
+                  />{" "}
+                  
+                </td>
+              </tr>
+
               {/* Password */}
-              <label htmlFor="password" className="text-3xl">
-                Password
-              </label>
-              <br />
-              <input
-                name="password"
-                type="password"
-                placeholder="Password"
-                required
-                className="h-10 w-96 px-5 focus:border-blue-here focus:border-4 hover:border-blue-here hover:border-4"
-              />
-              <br />
+              <tr>
+                <td>
+                  <label
+                    htmlFor="password"
+                    style={{
+                      padding: "25px",
+                      fontWeight: "bold",
+                      fontSize: "30px",
+                    }}
+                  >
+                    Password
+                  </label>
+                </td>
+                <td>
+                  
+                  <input
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                    required
+                    style={{
+                      backgroundColor: "#CFD8DC",
+                      padding: "25px",
+                      borderRadius: "100px 100px 100px 100px",
+                      border: "none",
+                      fontSize: "15px",
+                    }}
+                  />
+                
+                </td>
+              </tr>
+
               {/* Buttons */}
-              <br />
-              {/* <button
-                type="submit"
-                className="rounded-2xl bg-background h-12 w-96 border-4 border-blue-here hover:border-background hover:bg-opacity-40 hover:text-black"
-              >
-                SUBMIT
-              </button> */}
-              <LoadingButton isLoading={isLoading} isSuccess={isSuccess} onClick={handleButtonClick} />
-              <br />
-              <button className="rounded w-96 hover:bg-background hover:text-white hover:w-40 hover:ml-28">
-                <Link to="/sign_up">New user? Signup&gt;&gt;</Link>
+              
+                    <div style={{marginLeft:"30px",marginTop:"50px"}}>
+                    <LoadingButton
+                isLoading={isLoading}
+                isSuccess={isSuccess}
+                onClick={handleButtonClick}
+              />
+                    </div>
+              
+              <br/>
+             
+              <button className="rounded w-96 hover:bg-background hover:text-white hover:w-40 hover:ml-28" style={{border:"none",background:"none",textDecoration:"none",marginTop:"50px"}}>
+                <Link to="/" style={{fontFamily:"amar",fontSize:"20px",marginLeft:"150px",color:"black",fontWeight:"bold"}}>New user? Signup&gt;&gt;</Link>
               </button>
-              <br />
+              
             </form>
           </div>
         </div>
