@@ -56,15 +56,16 @@ const Sign_up = () => {
 
         // Getting subcontract addr.
         const getSubContract = await Main_Contract.getSubContractDetails(_uuid);
-        console.log('Subcontract address:', "0x1CdE990BA7b7Ba709BFb5334c4a45B2cc4DA240f");
+        console.log("get subcontract:", getSubContract);
+        console.log('Subcontract address:', getSubContract[3]);
 
-        document.cookie = `Sub_add=${"0x1CdE990BA7b7Ba709BFb5334c4a45B2cc4DA240f"}; path=/`;
-        sessionStorage.setItem('Sub_add', "0x1CdE990BA7b7Ba709BFb5334c4a45B2cc4DA240f");
+        document.cookie = `Sub_add=${getSubContract[3]}; path=/`;
+        sessionStorage.setItem('Sub_add', getSubContract[3]);
 
         setIsLoading(false);
         setIsSuccess(true);
         setTimeout(() => {
-          history('/student_login');
+          history('/');
         }, 1500);                     // Redirect after 1.5 seconds
       } catch (error) {
         console.error('Error:', error.message);
