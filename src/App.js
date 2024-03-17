@@ -12,8 +12,8 @@ function App() {
     <Router>
         <div>
           <Routes>
-            <Route path="/" element={<Signup />} errorElement={<ErrorPage />} />
-            <Route path="/student_login" element={<Login />} errorElement={<ErrorPage />} />
+            <Route path="/" element={<Login />} errorElement={<ErrorPage />} />
+            <Route path="/student_signup" element={<Signup />} errorElement={<ErrorPage />} />
             <Route path="/assignment_upload" element={<AssignmentUpload />} errorElement={<ErrorPage />} />
             <Route path="/student_portal" element={<StudentPortal />} errorElement={<ErrorPage />} />
             <Route path="/submit_assignment" element={<SubmitAssignment />} errorElement={<ErrorPage />} />
